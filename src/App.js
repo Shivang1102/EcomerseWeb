@@ -1,20 +1,44 @@
 
-import './App.css';
-import {Navbar, Container,Nav} from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
+
+import Header from './Components/Header';
+import Product from './Components/Product';
+import Cart from './Components/Cart';
+import { Fragment, useState } from 'react';
+import Footer from './Components/footer';
+
 
 function App() {
-  return <>
-  `    <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>`
-   </>
+
+   const [cartIsShown, setCartIsShown]=useState(false)
+   console.log(cartIsShown);
+   const showcartHandler=()=>{
+    setCartIsShown(true);
+    console.log('HI')
+   }
+
+   const hidecartHandler=()=>{
+    setCartIsShown(false);
+   }
+   
+
+
+  return <Fragment>
+      {console.log('cart is shown')}
+     <Header  onShowCart={showcartHandler}/>
+       {cartIsShown &&  <Cart/>}
+     <Product/>
+                 
+     <div style={{ textAlign: 'center' }}>
+        <Button variant="primary" >
+          Show Cart
+        </Button>
+      </div>        
+             
+      <Footer/>       
+
+      
+   </Fragment>
   
 }
 
