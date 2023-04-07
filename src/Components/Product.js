@@ -1,9 +1,14 @@
 import React from "react";
-import { Col, Container, Row, Card, Button } from "react-bootstrap";
+import {  Row } from "react-bootstrap";
 
-const Product = () => {
+
+import Productlist from "./Productlist";
+const Product = (props) => {
+  
+
   const productsArr = [
     {
+      id: "m1",
       title: "Colors",
 
       price: 100,
@@ -13,6 +18,7 @@ const Product = () => {
     },
 
     {
+      id: "m2",
       title: "Black and white Colors",
 
       price: 50,
@@ -22,6 +28,7 @@ const Product = () => {
     },
 
     {
+      id: "m3",
       title: "Yellow and Black Colors",
 
       price: 70,
@@ -31,6 +38,7 @@ const Product = () => {
     },
 
     {
+      id: "m4",
       title: "Blue Color",
 
       price: 100,
@@ -42,22 +50,17 @@ const Product = () => {
 
   return (
     <Row>
-      {productsArr.map(item => (
-        <Col sm={6} key={item.title} className={"col d-flex justify-content-center mt-4"}>
-          <Card style={{ width: '18rem' }} >
-            <Card.Img className={ 'hover-zoom'}variant="top" src={item.imageUrl} style={{ width: '286px', height: '180px' }} />
-            <Card.Body>
-              <Card.Title>{item.title}</Card.Title>
-              <Card.Text>Price ₹{item.price}</Card.Text>
-              <Button>Add To CART</Button>
-            </Card.Body>
-          </Card>
-        </Col>
+      {productsArr.map((item) => (
+        <Productlist
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          price={item.price}
+          imageUrl={item.imageUrl}
+        />
       ))}
     </Row>
   );
 };
 
 export default Product;
-
-

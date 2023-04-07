@@ -3,34 +3,24 @@ import { Button } from 'react-bootstrap';
 
 import Header from './Components/Header';
 import Product from './Components/Product';
-import Cart from './Components/Cart';
-import { Fragment, useState } from 'react';
+
 import Footer from './Components/footer';
+import CartProvider from './Store/card-Provider';
 
 
-function App() {
+function App(props) {
 
-   const [cartIsShown, setCartIsShown]=useState(false)
-   console.log(cartIsShown);
-   const showcartHandler=()=>{
-    setCartIsShown(true);
-    console.log('HI')
-   }
-
-   const hidecartHandler=()=>{
-    setCartIsShown(false);
-   }
-   
-
-
-  return <Fragment>
+ const openCartHandler=(setshow)=>{
+    
+ }
+  return <CartProvider>
       {console.log('cart is shown')}
-     <Header  onShowCart={showcartHandler}/>
-       {cartIsShown &&  <Cart/>}
+     <Header />
+       
      <Product/>
                  
      <div style={{ textAlign: 'center' }}>
-        <Button variant="primary" >
+        <Button variant="primary" onClick={openCartHandler} >
           Show Cart
         </Button>
       </div>        
@@ -38,7 +28,7 @@ function App() {
       <Footer/>       
 
       
-   </Fragment>
+   </CartProvider>
   
 }
 

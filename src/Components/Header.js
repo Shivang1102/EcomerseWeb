@@ -1,21 +1,33 @@
 
 import {Navbar, Container,Nav, Carousel,Button,Modal} from 'react-bootstrap';
 import CartIcon from  './CartIcon'
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import classes from './Headerbutton.module.css'
 import Cart from './Cart';
+
+import CartContext from '../Store/card-context';
 
 
 
 const Header=(props)=>{
     const [show, setShow] = useState(false);
+    const cartctx= useContext(CartContext);
 
+    const numberofcartItem= cartctx.items.reduce((currentnum, item)=>{
+        return currentnum + item.amount;
+    },0)
+   
+      
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        
+        setShow(true)
+     
+    };
 
-     const  opencart=(e)=>{
-        props.onShowCart(e)
-      }
+     const orderSucess=()=>{
+        alert('Thank you for shopping! Order Sucessfull')
+     }
 
 
     return<><Navbar bg="dark" variant="dark">
@@ -40,7 +52,7 @@ const Header=(props)=>{
       <Button variant="primary" onClick={handleShow}>
       <span  className={classes.icon}><CartIcon/></span>
             <span>Your Cart</span>
-            <span >3</span>
+            <span >{numberofcartItem}</span>
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -54,7 +66,7 @@ const Header=(props)=>{
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={orderSucess} >
                Order
           </Button>
         </Modal.Footer>
