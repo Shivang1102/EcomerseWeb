@@ -1,0 +1,41 @@
+.banner {
+  background-color: #9bc5d6;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.banner h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.banner p {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+
+.categories {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.categories h2 {
+  margin-bottom: 30px;
+}
+
+.category {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.category img {
+  width: 100%;
+}
+
+.category h3 {
+  font-size: 24px;
+  margin-top:20px
+
+
+
+}

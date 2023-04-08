@@ -1,35 +1,21 @@
 
-import { Button } from 'react-bootstrap';
 
-import Header from './Components/Header';
-import Product from './Components/Product';
-
-import Footer from './Components/footer';
-import CartProvider from './Store/card-Provider';
+import {createBrowserRouter,RouterProvider} from 'react-router-dom';
+import Main from './Components/Main';
+import About from './Components/About';
+import Home from './Components/Home';
 
 
-function App(props) {
+const router = createBrowserRouter([
+  {path: '/' , element: <Main/>},
+  {path:'/about' ,element:<About/>},
+  {path:'/home', element:<Home/>}
+])
 
- const openCartHandler=(setshow)=>{
-    
- }
-  return <CartProvider>
-      {console.log('cart is shown')}
-     <Header />
-       
-     <Product/>
-                 
-     <div style={{ textAlign: 'center' }}>
-        <Button variant="primary" onClick={openCartHandler} >
-          Show Cart
-        </Button>
-      </div>        
-             
-      <Footer/>       
+function App() {
 
-      
-   </CartProvider>
-  
+ 
+  return  <RouterProvider router={router}/>
+
 }
-
 export default App;

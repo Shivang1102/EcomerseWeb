@@ -6,7 +6,7 @@ import classes from './Headerbutton.module.css'
 import Cart from './Cart';
 
 import CartContext from '../Store/card-context';
-
+import { Link } from 'react-router-dom';
 
 
 const Header=(props)=>{
@@ -35,10 +35,10 @@ const Header=(props)=>{
       <Navbar.Brand >
         <h2>Shopping Mart</h2>
       </Navbar.Brand>
-      <Nav className="me-auto">
-        <Nav.Link  >Home</Nav.Link>
-        <Nav.Link >Store</Nav.Link>
-        <Nav.Link >About </Nav.Link>
+      <Nav className="me-auto"  style={{display:'flex' , gap:'1rem',}}>
+      <Link   style={{color:'rgba(255, 255, 255, 0.55', textDecoration:'none'}} to='/home'>Home </Link>
+        <Link style={{color:'rgba(255, 255, 255, 0.55',textDecoration:'none'}} to='/'>Store</Link>
+        <Link   style={{color:'rgba(255, 255, 255, 0.55',textDecoration:'none'}} to='/about'>About </Link>
       </Nav>
     </Container>
        {/* <form className="d-flex" role="search">
