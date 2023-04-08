@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const Footer=()=>{
     return <> <footer className="container " >
-       <p className="float-right"><a href="#">Back to top</a></p>
-      <p>© 2022-2023 Shivang's Blog. <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+       <p className="float-right"> <Link to="#">Back to top</Link> </p>
+      <p>© 2022-2023 Shivang's Blog. <Link href="#">Privacy</Link> · <Link href="#">Terms</Link></p>
      </footer>
     
     </>

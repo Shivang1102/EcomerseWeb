@@ -1,5 +1,5 @@
 import { Nav, Container, Navbar, Row , Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import './LandingPage.css';
 const Home=()=>{
   return <div>
@@ -9,9 +9,9 @@ const Home=()=>{
         <h2>Shopping Mart</h2>
       </Navbar.Brand>
       <Nav className="me-auto"  style={{display:'flex' , gap:'1rem',}}>
-      <Link   style={{color:'rgba(255, 255, 255, 0.55', textDecoration:'none'}} to='/home'>Home </Link>
-        <Link style={{color:'rgba(255, 255, 255, 0.55',textDecoration:'none'}} to='/'>Store</Link>
-        <Link   style={{color:'rgba(255, 255, 255, 0.55',textDecoration:'none'}} to='/about'>About </Link>
+      <NavLink   style={{color:'rgba(255, 255, 255, 0.55', textDecoration:'none' }} className="nav-link"  activeClassName="active" to='/home'>Home </NavLink>
+      <NavLink   style={{color:'rgba(255, 255, 255, 0.55', textDecoration:'none'}}  className="nav-link"   activeClassName="active" to='/'>Store</NavLink>
+      <NavLink   style={{color:'rgba(255, 255, 255, 0.55', textDecoration:'none'}}  className="nav-link"   activeClassName="active"to='/about'>About </NavLink>
       </Nav>
     </Container>
     </Navbar>
