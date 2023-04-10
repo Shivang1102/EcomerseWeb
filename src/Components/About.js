@@ -43,6 +43,17 @@ const About = () => {
             >
               About{" "}
             </NavLink>
+            <NavLink
+              style={{
+                color: "rgba(255, 255, 255, 0.55",
+                textDecoration: "none",
+              }}
+              className="nav-link"
+              activeClassName="active"
+              to="/Contact"
+            >
+              Contact{" "}
+            </NavLink>
           </Nav>
         </Container>
       </Navbar>
