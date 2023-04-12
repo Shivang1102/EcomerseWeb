@@ -28,7 +28,7 @@ const Home = () => {
               }}
               className="nav-link"
               activeClassName="active"
-              to="/"
+              to="/Main"
             >
               Store
             </NavLink>

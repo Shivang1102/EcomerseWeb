@@ -57,7 +57,7 @@ const Header = (props) => {
               }}
               className="nav-link"
               activeClassName="active"
-              to="/"
+              to="/Main"
             >
               Store
             </NavLink>
