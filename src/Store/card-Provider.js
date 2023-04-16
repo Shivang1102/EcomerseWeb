@@ -65,17 +65,20 @@ const CartProvider=(props)=>{
 
  const  [ cartstate , disdpatchCartAction] =  useReducer(cartReducer, defaultcartState);
   const [token , setToken] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const userIsLoggedIn = !!token;
 
   const loginHandler=(token)=>{
-      setToken(token)
+      setToken(token);
+      setIsLoggedIn(true);
   }
 
   const logoutHandler=()=>{
     setToken(null);
+    setIsLoggedIn(false);
   }
-
+ 
     const additemtocartHandler=(item)=>{
             disdpatchCartAction({type:'ADD', item:item})
     }
@@ -90,7 +93,7 @@ const CartProvider=(props)=>{
     additem: additemtocartHandler  ,
     removeitem:removeitemfromcartHamdler,
     token:token,
-    isLoggedIn:userIsLoggedIn,
+    isLoggedIn:isLoggedIn,
     login: loginHandler,
     logout:logoutHandler
    }

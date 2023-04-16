@@ -48,7 +48,7 @@ const Home = () => {
             >
               Store
             </NavLink>}
-           {isLoggedIn &&  <NavLink
+           {isLoggedIn &&  <NavLink onCL
               style={{
                 color: "rgba(255, 255, 255, 0.55",
                 textDecoration: "none",

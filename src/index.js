@@ -8,14 +8,15 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 import App from './App';
 import CartProvider from './Store/card-Provider';
+import { BrowserRouter } from 'react-router-dom';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
    <CartProvider>
-  <React.StrictMode>
+   <BrowserRouter>
     <App />
-  </React.StrictMode>
+    </BrowserRouter>
   </CartProvider>
   
 );
