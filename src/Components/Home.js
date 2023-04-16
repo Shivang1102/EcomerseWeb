@@ -1,7 +1,23 @@
 import { Nav, Container, Navbar, Row, Col, Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./LandingPage.css";
+import { useContext } from "react";
+import CartContext from "../Store/card-context";
+
+
 const Home = () => {
+ 
+  const navigate= useNavigate();
+  const authCtx= useContext(CartContext);
+  const logoutHandler =()=>{
+    authCtx.logout();
+    navigate('/auth')
+  }
+
+  const loginHandler=()=>{
+    navigate('/auth')
+  }
+  const isLoggedIn = authCtx.isLoggedIn;
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -10,7 +26,7 @@ const Home = () => {
             <h2>Shopping Mart</h2>
           </Navbar.Brand>
           <Nav className="me-auto" style={{ display: "flex", gap: "1rem" }}>
-            <NavLink
+            {isLoggedIn && <NavLink
               style={{
                 color: "rgba(255, 255, 255, 0.55",
                 textDecoration: "none",
@@ -20,8 +36,8 @@ const Home = () => {
               to="/home"
             >
               Home{" "}
-            </NavLink>
-            <NavLink
+            </NavLink>}
+           {isLoggedIn &&  <NavLink
               style={{
                 color: "rgba(255, 255, 255, 0.55",
                 textDecoration: "none",
@@ -31,8 +47,8 @@ const Home = () => {
               to="/Main"
             >
               Store
-            </NavLink>
-            <NavLink
+            </NavLink>}
+           {isLoggedIn &&  <NavLink
               style={{
                 color: "rgba(255, 255, 255, 0.55",
                 textDecoration: "none",
@@ -42,8 +58,8 @@ const Home = () => {
               to="/about"
             >
               About{" "}
-            </NavLink>
-            <NavLink
+            </NavLink>}
+         {isLoggedIn &&    <NavLink
               style={{
                 color: "rgba(255, 255, 255, 0.55",
                 textDecoration: "none",
@@ -53,9 +69,12 @@ const Home = () => {
               to="/Contact"
             >
               Contact{" "}
-            </NavLink>{" "}
+            </NavLink>}
           </Nav>
+
         </Container>
+        {!isLoggedIn && <button  onClick={loginHandler}>Login</button>}
+       {isLoggedIn &&  <button  onClick={logoutHandler}>Logout</button>}
       </Navbar>
       <div>
         {/* Banner */}

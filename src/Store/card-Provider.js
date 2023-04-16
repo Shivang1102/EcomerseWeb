@@ -1,6 +1,6 @@
 import CartContext from "./card-context"
 
-import React,{useReducer} from "react"
+import React,{useReducer, useState} from "react"
  
 const defaultcartState={
     items:[],
@@ -63,7 +63,18 @@ const cartReducer=(state,action)=>{
 
 const CartProvider=(props)=>{
 
- const  [ cartstate , disdpatchCartAction] =  useReducer(cartReducer, defaultcartState)
+ const  [ cartstate , disdpatchCartAction] =  useReducer(cartReducer, defaultcartState);
+  const [token , setToken] = useState(null);
+
+  const userIsLoggedIn = !!token;
+
+  const loginHandler=(token)=>{
+      setToken(token)
+  }
+
+  const logoutHandler=()=>{
+    setToken(null);
+  }
 
     const additemtocartHandler=(item)=>{
             disdpatchCartAction({type:'ADD', item:item})
@@ -72,11 +83,16 @@ const CartProvider=(props)=>{
     const removeitemfromcartHamdler=(id)=>{
          disdpatchCartAction({type:'REMOVE' ,id:id})
     }
+
    const cartcontext ={
     items:cartstate.items,
     totalamount:cartstate.totalamount,
     additem: additemtocartHandler  ,
-    removeitem:removeitemfromcartHamdler
+    removeitem:removeitemfromcartHamdler,
+    token:token,
+    isLoggedIn:userIsLoggedIn,
+    login: loginHandler,
+    logout:logoutHandler
    }
 
 
@@ -86,4 +102,4 @@ const CartProvider=(props)=>{
 
 }
 
-export default CartProvider
+export default CartProvider;    
