@@ -48,7 +48,7 @@ const Home = () => {
             >
               Store
             </NavLink>}
-           {isLoggedIn &&  <NavLink onCL
+           {isLoggedIn &&  <NavLink 
               style={{
                 color: "rgba(255, 255, 255, 0.55",
                 textDecoration: "none",
@@ -74,7 +74,7 @@ const Home = () => {
 
         </Container>
         {!isLoggedIn && <button  onClick={loginHandler}>Login</button>}
-       {isLoggedIn &&  <button  onClick={logoutHandler}>Logout</button>}
+       {isLoggedIn &&  <button style={{color:'white',backgroundColor:'black'}} onClick={logoutHandler}>Logout</button>}
       </Navbar>
       <div>
         {/* Banner */}

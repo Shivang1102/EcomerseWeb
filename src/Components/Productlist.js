@@ -13,6 +13,7 @@ const Productlist = (props) => {
           price: props.price,
           imageUrl: props.imageUrl,
         });
+        
       };
 
   return (

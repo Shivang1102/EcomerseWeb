@@ -64,7 +64,12 @@ const AuthForm = () => {
           }
         })
         .then((data) => {
-          authCtx.login(data.idToken)
+
+          const expirationTime = new Date(
+            new Date().getTime() + +data.expiresIn * 1000
+          );
+          console.log(data);
+          authCtx.login(data.idToken,expirationTime.toISOString(),data.email)
           navigate('/Home');
        
         })

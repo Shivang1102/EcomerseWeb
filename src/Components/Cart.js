@@ -1,15 +1,19 @@
 
 import "./Cart.css";
-import React, { useContext } from "react";
+import React, { useContext ,useState, useEffect} from "react";
 import CartContext from "../Store/card-context";
 
 
 const Cart = (props) => {
 
   const cartctx = useContext(CartContext);
- 
 
- const totalamount  =`${cartctx.totalamount.toFixed(2)}`
+
+const totalAmount  =`${cartctx.totalamount.toFixed(2)}`
+
+
+
+
   const cartitemRemoveHandler=(id)=>{
            cartctx.removeitem(id);
   }
@@ -24,7 +28,7 @@ const Cart = (props) => {
         <span className={"cart-quantity cart-header"}>Quantity</span>
       </div>
       <div className="cart-items">
-        {cartctx.items.map((items) => {
+         {cartctx.items && cartctx.items.map((items) => {
           return (
             <>
               <div className="cart-row" key={items.title}>
@@ -47,7 +51,7 @@ const Cart = (props) => {
             <span className="total-title">
               <strong>Total Amount</strong>
             </span>
-            ₹<span>{totalamount}</span>
+            ₹<span>{totalAmount}</span>
           </span>
         </div>
       </div>

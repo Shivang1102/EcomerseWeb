@@ -18,9 +18,9 @@ const Header = (props) => {
   const [show, setShow] = useState(false);
   const cartctx = useContext(CartContext);
 
-  const numberofcartItem = cartctx.items.reduce((currentnum, item) => {
+  const numberofcartItem = cartctx.items ? cartctx.items.reduce((currentnum, item) => {
     return currentnum + item.amount;
-  }, 0);
+  }, 0) : 0;
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
